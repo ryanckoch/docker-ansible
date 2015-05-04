@@ -1,7 +1,9 @@
 FROM ryanckoch/docker-ubuntu-14.04
 
 RUN apt-get -y update && \
-    apt-get install -y python-yaml python-jinja2 python-httplib2 python-keyczar python-paramiko python-setuptools python-pkg-resources git python-pip
+    apt-get install -y python-yaml python-jinja2 python-httplib2 python-keyczar\
+    python-paramiko python-setuptools python-pkg-resources git python-pip && \
+    rm -rf /var/lib/apt/lists/*
 RUN mkdir /etc/ansible/
 RUN echo '[local]\nlocalhost\n' > /etc/ansible/hosts
 RUN mkdir /opt/ansible/
